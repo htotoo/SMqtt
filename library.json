@@ -1,0 +1,20 @@
+{
+  "name": "SMqtt",
+  "version": "1.0.0",
+  "description": "SMqtt",
+  "keywords": "Smqtt, mqtt, iot, reconnect, async",
+  "authors":
+  {
+    "name":  "HTotoo",
+    "url":   "https://github.com/htotoo",
+    "maintainer": true
+  },
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/htotoo/SMqtt.git"
+  },
+  "homepage": "https://github.com/htotoo/SMqtt.git",
+  "frameworks": [ "arduino"],
+  "platforms": "esp32"
+}
