@@ -24,7 +24,7 @@ class SMqtt
     static void SetOnConnectCallBack(void(*fp)()) {
       onConnectCB = fp;
     }
-    static void SetOnMessageCallBack(void(*fp)(char* topic, char* payload)) {
+    static void SetOnMessageCallBack(void(*fp)(char* topic, char* payload, size_t len)) {
       onMessageCB = fp;
     }
 
@@ -43,7 +43,7 @@ class SMqtt
     static void intOnMqttPublish(uint16_t packetId);
     static unsigned long lastCheck;
     static void(*onConnectCB)();
-    static void(*onMessageCB)(char* topic, char* payload);
+    static void(*onMessageCB)(char* topic, char* payload, size_t len);
 };
 
 

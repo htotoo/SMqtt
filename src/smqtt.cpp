@@ -9,7 +9,7 @@ bool SMqtt::isConnected = false;
 AsyncMqttClient SMqtt::mqttClient;
 unsigned long SMqtt::lastCheck = 0;
 void(*SMqtt::onConnectCB)() = NULL;
-void(*SMqtt::onMessageCB)(char* topic, char* payload) = NULL;
+void(*SMqtt::onMessageCB)(char* topic, char* payload, size_t len ) = NULL;
 
 void SMqtt::Setup()
 {
@@ -64,5 +64,5 @@ void SMqtt::intOnMqttSubscribe(uint16_t packetId, uint8_t qos) {};
 void SMqtt::intOnMqttUnsubscribe(uint16_t packetId) {};
 void SMqtt::intOnMqttPublish(uint16_t packetId) {};
 void SMqtt::intOnMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total) {
-    if (SMqtt::onMessageCB != NULL) SMqtt::onMessageCB(topic, payload);
+    if (SMqtt::onMessageCB != NULL) SMqtt::onMessageCB(topic, payload, len);
 }
