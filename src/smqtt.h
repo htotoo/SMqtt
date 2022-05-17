@@ -13,6 +13,7 @@ class SMqtt
       mPass = pass;
       mqttClient.setServer(mHost, mPort);
       mqttClient.setCredentials(mUser, mPass);
+      mqttClient.setKeepAlive(45);
     }
     static void Loop(bool iswifiOk);
     static void Setup();

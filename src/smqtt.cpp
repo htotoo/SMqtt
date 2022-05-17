@@ -27,6 +27,7 @@ void SMqtt::Loop(bool iswifiOk) {
   if (iswifiOk && !mqttClient.connected()) {
     mqttClient.connect();
   }
+  if (!iswifiOk) mqttClient.disconnect(true);
 }
 
 bool SMqtt::IsConnected() {
