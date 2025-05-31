@@ -1,7 +1,7 @@
 # SMqtt
 
 Just another ESP32 Mqtt client.
-Features: AsyncMqttClient wrapper. (so install https://github.com/marvinroger/async-mqtt-client/ too, to use this)
+Features: AsyncMqttClient wrapper. (so install https://github.com/bertmelis/espMqttClient/ too, to use this)
 
 
 ## Usage:

@@ -1,7 +1,7 @@
 #ifndef __SMQTT_H
 #define __SMQTT_H
 
-#include <AsyncMqttClient.h>
+#include <espMqttClientAsync.h>
 
 class SMqtt
 {
@@ -35,12 +35,13 @@ class SMqtt
     static char* mUser;
     static char* mPass;
     static bool isConnected;
-    static AsyncMqttClient mqttClient;
+    static espMqttClientAsync mqttClient;
     static void intOnMqttConnect(bool sessionPresent);
-    static void intOnMqttDisconnect(AsyncMqttClientDisconnectReason reason);
-    static void intOnMqttSubscribe(uint16_t packetId, uint8_t qos);
+    static void intOnMqttDisconnect(espMqttClientTypes::DisconnectReason reason);
+    static void intOnMqttSubscribe(uint16_t packetId, const espMqttClientTypes::SubscribeReturncode* codes, size_t len);
     static void intOnMqttUnsubscribe(uint16_t packetId);
-    static void intOnMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total);
+    
+    static void intOnMqttMessage(const espMqttClientTypes::MessageProperties& properties, const char* topic, const uint8_t* payload, size_t len, size_t index, size_t total);
     static void intOnMqttPublish(uint16_t packetId);
     static unsigned long lastCheck;
     static void(*onConnectCB)();
